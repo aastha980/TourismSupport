@@ -7,18 +7,87 @@
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlBJFg2JxIpIwXm8m65lYFNnE2J1QKr4Q&libraries=places&callback=initMap">
     </script>
     <script src="/lib/jquery-3.2.1.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="/js/admin.js"></script>
 </head>
 <body>
+<%- include('components/navbar'); %>
+<section>
+    <div class="container">
+        <div>
+            <h2 align="center"><strong>Find the perfect route</strong></h2>
+        </div>
 
-<input id="place" name="place">
-<input id="priority" name="priority" type="number">
-<button id="add">Add</button>
-<button id="findBest">Find Best acc to opening and closing hrs</button>
-<ul id="list">
+        <div class="row">
+            <div class="col-md-7">
+                <div style="margin-top: 1em;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3736489.7218514383!2d90.21589792292741!3d23.857125486636733!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1506502314230"
+                            width="100%" height="415" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <h4><strong>Enter the places you want to visit and we will give you the most efficient route to cover all possible places within their opening and closing time according to your priority and review!!</strong>
+                </h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group">
+
+                            <input  id="place" name="place">
+
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <input id="priority" name="priority" type="number">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-4">
+                        <div class="input-group" >
+                            <button id="add" style="width: 4em;">Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="height: 1em;"></div>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="input-group">
+                            <button id="findBest">Find Best acc to opening and closing hrs</button>
+                        </div>
+                    </div>
+                </div>
 
 
-</ul>
+
+                <div style="height: 1em;"></div>
+                <h4 align="center">Desired Locations</h4>
+                <ul id="list" class="list-group">
+
+
+                </ul>
+            </div>
+        </div>
+        <h3 align="center">The best possible route is: </h3>
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6">
+                <ol class="list-group" id="finallist">
+
+                </ol>
+            </div>
+        </div>
+
+    </div>
+</section>
 <div id="map"></div>
+<%- include('components/footer'); %>
 </body>
 </html>

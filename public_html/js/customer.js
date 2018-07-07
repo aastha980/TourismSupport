@@ -2,10 +2,12 @@ var l=[];
 var a;
 $(()=>{
     let list=$("#list");
+    let fl=$("#finallist");
+    fl.html("");
     list.html("");
     $("#add").on('click',()=>{
         let value=$("#place").val();
-        let ui=`<li>${value}</li>`;
+        let ui=`<li class="list-group-item">${value}</li>`;
         list.append(ui);
         l.push(value);
     });
@@ -48,12 +50,16 @@ $(()=>{
                 console.log(ans);
                 if(param=='distance') {
                     $.post('/customerDecided/distance', {ans: ans}, (data) => {
-                        console.log(data);
+                        data.cycles.forEach((item)=>{
+                            let g=`<li class="list-group-item">${l[item]}</li>`;
+                            fl.append(g);
+                        })
                     })
                 }
                 else if(param=='time'){
-                    $.post('/customerDecided/time', {ans: ans}, (data) => {
-                        console.log(data);
+                    data.cycles.forEach((item)=>{
+                        let g=`<li class="list-group-item">${l[item]}</li>`;
+                        fl.append(g);
                     })
                 }
             }

@@ -5,10 +5,31 @@
     <title>Home</title>
     <script src="/lib/jquery-3.2.1.min.js"></script>
     <script src="/js/index.js"></script>
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-Hi
-<a href="/customerDecided"> <button id="customer">Customer Decided</button></a>
-<a href="/adminDecided"> <button id="server">Server Decided</button></a>
+<div class="carousel fade-carousel slide" id="bs-carousel">
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+
+        <div class="item slides">
+            <div class="hero">
+                <hgroup>
+                    <h1>Tourism Support</h1>
+                    <h3>Start planning your next tour</h3>
+                </hgroup>
+                <a href="/customerDecided"> <button id="customer">Customer Decided</button></a>
+                <a href="/adminDecided"> <button id="server">Server Decided</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('components/footer'); %>
 </body>
 </html>

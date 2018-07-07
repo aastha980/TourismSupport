@@ -6,13 +6,13 @@ route.get('/',(req,res)=>{
 });
 
 function JobSequencingWithDeadline(Job,n,result){
-    let timeslots=new Array(max+1);
     let filledTimeSlot=0;
     let maxDeadline=0;
     for(let i=0;i<n;i++){
         if(Job[i].deadline>maxDeadline)
             maxDeadline=Job[i].deadline;
     }
+    let timeslots=new Array(maxDeadline+1);
     for(let i=1;i<=maxDeadline;i++){
         timeslots[i]=-1;
     }
@@ -33,12 +33,14 @@ function JobSequencingWithDeadline(Job,n,result){
             break;
     }
 
-    console.log("Required Jobs: ");/*
+    console.log("Required Jobs: ");
     console.log(Job);
-    console.log(timeslots);*/
+    console.log(timeslots);
     for(let i=1;i<=maxDeadline;i++){
-        result.arr.push(Job[timeslots[i]].id);
-        console.log(Job[timeslots[i]].id);
+        if(timeslots[i]!==-1) {
+            result.arr.push(Job[timeslots[i]].id);
+            console.log(Job[timeslots[i]].id);
+        }
     }
 
 }
@@ -65,12 +67,12 @@ function findBest(ans,result) {
 route.post('/data',(req,res)=>{
     var ans=req.body.ans;
     ans.shift();
-    //console.log(req.body.ans);
+    console.log(req.body.ans);
     var result={
         arr:[]
     }
     findBest(ans,result);
-    //console.log(result);
+    console.log(result);
     res.send(result);
 });
 /**/

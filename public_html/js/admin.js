@@ -4,11 +4,12 @@ var ans={
 };
 $(()=> {
     let list = $("#list");
+    let finallist=$("#finallist");
     list.html("");
     $("#add").on('click', () => {
         let value = $("#place").val();
         let priority = $("#priority").val();
-        let ui = `<li>${value} with priority ${priority}</li>`;
+        let ui = `<li class="list-group-item">${value} with priority ${priority}</li>`;
         list.append(ui);
         l.push({value:value,priority:priority});
     });
@@ -18,11 +19,16 @@ $(()=> {
             initMap(l[i].value,l[i].priority);
         console.log(ans);
         haan(ans);
+        l=[];
     });
 
     function haan(ans) {
         $.post('/adminDecided/data',{ans:ans.arr},(data)=>{
-            console.log(data);
+            finallist.html("");
+            data.arr.forEach((item)=>{
+                let g=`<li class="list-group-item">${item}</li>`;
+                finallist.append(g);
+            })
         })
     }
 
@@ -63,7 +69,8 @@ function initMap(value,priority) {
                 console.log(deadline);
             }
             else{
-
+                var d=new Date();
+                var k=d.getTime();
                 deadline=parseInt(place.opening_hours.periods[n].close.time)-parseInt(place.opening_hours.periods[n].open.time);
                 console.log(deadline/100);
             }
