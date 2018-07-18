@@ -1,7 +1,7 @@
 # TourismSupport
-**Tourism Aid** is a wonderful portal for tourists visiting new country, city,etc. It helps find the **shortest** and the **most time efficient route** according between various places. The portal can also take in as input a list of places you want to visit and assign it profit according to your priority and public rating. Then it gives an efficient route to **travel maximum number of places such that you get most profit and you can visit the place before its closing time**.
+**Tourism Aid** is a wonderful portal for tourists visiting new country, city,etc. It helps find the **shortest** and the **most time efficient route** between various places. The portal can also take in as input a list of places you want to visit and assigna it profit according to your priority and public rating. Then it gives an efficient route to **travel the maximum number of places such that you get most profit and you can visit the place before its closing time**.
 
-The portal provides service by implementing **Travelling Salesman Problem** which **dynamic programming approach** to travel through the places with least cost. Also, it solves the problem of achieving maximum profit and visiting places before closing hours by a **greedy approach of Job Scheduling before deadline**.
+The portal provides service by implementing **Travelling Salesman Problem** which uses **dynamic programming approach** to visit all places with least cost. Also, it solves the problem of achieving maximum profit and visiting places before closing hours by a **greedy approach of Job Scheduling before deadline**.
 
 The website uses google maps API to calculate distance between two places.
 
